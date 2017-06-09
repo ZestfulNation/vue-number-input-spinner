@@ -4,7 +4,7 @@
     <input
         v-model.number="numericValue"
         @keypress="isNumber"
-        class="vnis__field"
+        class="vnis__field form__input"
         type="number"
         :min="min"
         :max="max"
@@ -30,7 +30,7 @@ export default {
             type: Number
         },
         max: {
-            default: 100,
+            default: 10,
             type: Number
         }
     },
@@ -40,7 +40,7 @@ export default {
 
         decreaseNumber() { this.numericValue--; },
 
-        isNumber(evt) {
+        isInteger(evt) {
             evt = (evt) ? evt : window.event;
             let key = evt.keyCode || evt.which;
             key = String.fromCharCode( key );
@@ -50,16 +50,29 @@ export default {
                 evt.returnValue = false;
                 if(evt.preventDefault) evt.preventDefault();
             }
-        }
+        },
+
+        isNumber(evt) {
+           evt = (evt) ? evt : window.event;
+           var charCode = (evt.which) ? evt.which : evt.keyCode;
+
+           console.log(charCode)
+           if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+               evt.preventDefault();
+           }
+           else {
+               return true;
+           }
+       }
     },
 
     watch: {
         numericValue: function(val, oldVal){
-            if(val <= 0) { this.numericValue = 0; }
+            if( val <= this.min ) { this.numericValue = parseInt(this.min); }
 
-            if(val >= this.max) { this.numericValue = parseInt(this.max); }
+            if( val >= this.max ) { this.numericValue = parseInt(this.max); }
 
-            if(val <= this.max) {
+            if( val <= this.max && val <= this.min ) {
                 this.$emit('newNumber', val, oldVal );
             }
         }
@@ -68,22 +81,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
- input {
-   &[type='number'] {
-     -moz-appearance: textfield;
-   }
+  input {
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
 
- &::-webkit-outer-spin-button,
-   &::-webkit-inner-spin-button {
-     -webkit-appearance: none;
-   }
- }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
 
-.vnis {
-   background: red;
+  .vnis {
+    background: red;
 
- &__button {
-     background: green;
-   }
- }
+    &__button {
+      background: green;
+    }
+  }
 </style>
