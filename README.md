@@ -3,13 +3,11 @@ A customizable number input spinner component for Vuejs
 
 ## Installation
 
-#### NPM
+* Install the package via NPM:
 
-Install the package:
+* `npm install vue-number-input-spinner`
 
-```
-npm install vue-number-input-spinner
-```
+* Load it in your project:
 
 ```javascript
 import NumberInputSpinner from 'vue-number-input-spinner'
@@ -21,10 +19,14 @@ export default {
 }
 ```
 
+#### Usage example:
 ```html
 <NumberInputSpinner
   :min="0"
   :max="10"
+  :inputClass="your-css-class"
+  :buttonClass="your-other-css-class"
+  :integerOnly="true"
   @newNumber="someFunction"
 />
 ```
