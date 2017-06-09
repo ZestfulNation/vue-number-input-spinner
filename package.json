@@ -1,7 +1,6 @@
 {
   "name": "vue-number-input-spinner",
   "version": "0.0.1",
-  "private": true,
   "description": "A Vue number spinner component that only allows the user to type in numbers",
   "author": "krystalcampioni <hello@krystalcampioni.com>",
   "license": "MIT",

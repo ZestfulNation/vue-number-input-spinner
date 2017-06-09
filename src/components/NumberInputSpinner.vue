@@ -4,7 +4,7 @@
     <input
         v-model.number="numericValue"
         @keypress="isNumber"
-        class="vnis__field form__input"
+        class="vnis__field"
         type="number"
         :min="min"
         :max="max"
