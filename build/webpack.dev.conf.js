@@ -15,9 +15,9 @@ config.devServer = {
 }
 
 config.module.rules = (config.module.rules || []).concat([
-  { 
-    test: /\.css$/, 
-    use: [ 
+  {
+    test: /\.css$/,
+    use: [
       { loader: 'style-loader' },
       { loader: 'css-loader' },
     ],
