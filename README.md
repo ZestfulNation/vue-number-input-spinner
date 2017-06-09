@@ -1,6 +1,9 @@
 # vue-number-input-spinner
 A customizable number input spinner component for Vuejs
 
+## Demo
+[https://krystalcampioni.github.io/vue-number-input-spinner/](https://krystalcampioni.github.io/vue-number-input-spinner/)
+
 ## Installation
 
 * Install the package via NPM:
