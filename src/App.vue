@@ -12,16 +12,21 @@
     <div class="grid">
       <div class="grid__full">
         <h2>A customizable number input spinner component for Vuejs</h2>
+
+        <NumberInputSpinner
+          :max="10"
+          :min="-10"
+        />
       </div>
 
       <div class="grid__half">
-        <p>Install the package via NPM and import it in your project:</p>
+        <h3>Install the package via NPM</h3>
         <pre v-highlightjs>
           <code class="javascript">
             {{ this.snippet1 }}
         </code>
       </pre>
-
+      <h3>And import it in your project</h3>
       <pre v-highlightjs>
         <code class="javascript">
           {{ this.snippet2 }}
@@ -30,10 +35,7 @@
 
       </div>
       <div class="grid__half">
-        <NumberInputSpinner
-          :max="10"
-          :min="-10"
-        />
+
       </div>
     </div>
     </div>
@@ -51,23 +53,24 @@ export default {
     data() {
         return {
           snippet1:
-            `
-            import NumberInputSpinner from 'vue-number-input-spinner'
+    `
+    import NumberInputSpinner from 'vue-number-input-spinner'
 
-            export default {
-              components: {
-                NumberInputSpinner,
-              },
-            }`,
+    export default {
+      components: {
+        NumberInputSpinner,
+      },
+    }`,
 
-          snippet2: `<NumberInputSpinner
-            :min="0"
-            :max="10"
-            :inputClass="your-css-class"
-            :buttonClass="your-other-css-class"
-            :integerOnly="true"
-            @newNumber="someFunction"
-          />`
+  snippet2: `
+  <NumberInputSpinner
+    :min="0"
+    :max="10"
+    :inputClass="your-css-class"
+    :buttonClass="your-other-css-class"
+    :integerOnly="true"
+    @newNumber="someFunction"
+  />`
         }
     }
 
@@ -87,6 +90,15 @@ export default {
   h2 {
     font-weight: lighter;
     color: #387e90;
+    margin-top: 40px;
+  }
+
+  h3 {
+    font-weight: lighter;
+    color: #316e7e;
+    border-top: 1px dashed #15bebf;
+    padding-top: 30px;
+    margin-bottom: 0;
   }
 
   pre {
@@ -100,6 +112,11 @@ export default {
     padding: 20px;
     width: 100%;
     float: left;
+  }
+
+  .vnis {
+    width: 200px;
+    margin: 30px 0;
   }
 
   .grid {
