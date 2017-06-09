@@ -1,16 +1,16 @@
 <template>
   <div class="vnis" >
-    <input type="button" @click="decreaseNumber" class="vnis__button" value="-"/>
+    <input type="button" @click="decreaseNumber" :class="buttonClass" value="-"/>
     <input
-        v-model.number="numericValue"
-        @keypress="isNumber"
-        class="vnis__field form__input"
         type="number"
+        v-model.number="numericValue"
+        @keypress="validateInput"
+        :class="inputClass"
         :min="min"
         :max="max"
         debounce="500"
     />
-    <input type="button" @click="increaseNumber" class="vnis__button" value="+"/>
+    <input type="button" @click="increaseNumber" :class="buttonClass" value="+"/>
   </div>
 </template>
 
@@ -32,6 +32,18 @@ export default {
         max: {
             default: 10,
             type: Number
+        },
+        inputClass: {
+          default: 'vnis__input',
+          type: String
+        },
+        buttonClass: {
+          default: 'vnis__button',
+          type: String
+        },
+        integerOnly: {
+          default: false,
+          type: Boolean
         }
     },
 
@@ -63,6 +75,15 @@ export default {
            else {
                return true;
            }
+       },
+
+       validateInput(evt) {
+          if ( this.integerOnly === true) {
+            this.isInteger(evt);
+          }
+          else {
+              this.isNumber(evt);
+          }
        }
     },
 
@@ -81,22 +102,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  input {
-    &[type='number'] {
-      -moz-appearance: textfield;
-    }
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
   }
 
   .vnis {
-    background: red;
+    &__input {
+      -webkit-appearance: none;
+      border: 1px solid #ebebeb;
+      float: left;
+      font-size: 16px;
+      height: 40px;
+      margin: 0;
+      outline: none;
+      text-align: center;
+      width: calc(100% - 80px);
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+    }
 
     &__button {
-      background: green;
+      -webkit-appearance: none;
+      transition: background .5s ease;
+      background: #387e90;
+      border: 0;
+      color: #fff;
+      cursor: pointer;
+      float: left;
+      font-size: 20px;
+      height: 40px;
+      margin: 0;
+      outline: none;
+      width: 40px;
+
+      &:hover {
+        background: lighten(#387e90, 10%);
+      }
     }
   }
 </style>
