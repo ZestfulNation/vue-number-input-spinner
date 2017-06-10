@@ -23,10 +23,17 @@
         <h3>Install the package via NPM</h3>
         <pre v-highlightjs>
           <code class="javascript">
+            {{ this.snippet0 }}
+        </code>
+        </pre>
+
+        <h3>Load in your project</h3>
+        <pre v-highlightjs>
+          <code class="javascript">
             {{ this.snippet1 }}
         </code>
       </pre>
-      <h3>And import it in your project</h3>
+      <h3>Use the component</h3>
       <pre v-highlightjs>
         <code class="javascript">
           {{ this.snippet2 }}
@@ -52,6 +59,7 @@ export default {
     },
     data() {
         return {
+          snippet0: 'npm install vue-number-input-spinner',
           snippet1:
     `
     import NumberInputSpinner from 'vue-number-input-spinner'
