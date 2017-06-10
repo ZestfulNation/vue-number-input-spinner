@@ -86,6 +86,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     margin: 0;
@@ -142,6 +149,11 @@ export default {
       width: calc(50% - 40px);
       margin: 0 20px 20px ;
       float: left;
+
+      @media screen and (max-width: 48em) {
+        width: calc(100% - 40px);
+        margin: 0 20px 20px;
+      }
     }
   }
 
