@@ -27,6 +27,7 @@ export default {
 <NumberInputSpinner
   :min="0"
   :max="10"
+  :step="2"
   :inputClass="your-css-class"
   :buttonClass="your-other-css-class"
   :integerOnly="true"

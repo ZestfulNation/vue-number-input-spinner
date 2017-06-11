@@ -33,6 +33,10 @@ export default {
             default: 10,
             type: Number
         },
+        step: {
+          default: 1,
+          type: Number
+        },
         inputClass: {
           default: 'vnis__input',
           type: String
@@ -48,9 +52,9 @@ export default {
     },
 
     methods: {
-        increaseNumber() { this.numericValue++; },
+        increaseNumber() { this.numericValue += this.step; },
 
-        decreaseNumber() { this.numericValue--; },
+        decreaseNumber() { this.numericValue -= this.step; },
 
         isInteger(evt) {
             evt = (evt) ? evt : window.event;
@@ -68,7 +72,6 @@ export default {
            evt = (evt) ? evt : window.event;
            var charCode = (evt.which) ? evt.which : evt.keyCode;
 
-           console.log(charCode)
            if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
                evt.preventDefault();
            }
