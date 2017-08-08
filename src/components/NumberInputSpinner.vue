@@ -97,7 +97,7 @@ export default {
             if( val >= this.max ) { this.numericValue = parseInt(this.max); }
 
             if( val <= this.max && val >= this.min ) {
-                this.$emit('newNumber', val, oldVal );
+                this.$emit('input', val, oldVal );
             }
         }
     }

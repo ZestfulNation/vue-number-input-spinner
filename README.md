@@ -31,6 +31,6 @@ export default {
   :inputClass="your-css-class"
   :buttonClass="your-other-css-class"
   :integerOnly="true"
-  @newNumber="someFunction"
+  v-model="yourVModel"
 />
 ```
