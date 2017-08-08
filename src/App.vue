@@ -16,6 +16,7 @@
         <NumberInputSpinner
           :max="10"
           :min="-10"
+          v-model="someModel"
         />
       </div>
 
@@ -51,7 +52,7 @@
 
 <script>
 
-import NumberInputSpinner from 'components/NumberInputSpinner.vue';
+import NumberInputSpinner from 'vue-number-input-spinner'
 
 export default {
     components: {
@@ -59,6 +60,7 @@ export default {
     },
     data() {
         return {
+          someModel: '',
           snippet0: 'npm install vue-number-input-spinner',
           snippet1:
     `
@@ -77,7 +79,7 @@ export default {
     :inputClass="your-css-class"
     :buttonClass="your-other-css-class"
     :integerOnly="true"
-    @newNumber="someFunction"
+    v-model="yourVModel"
   />`
         }
     }
