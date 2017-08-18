@@ -3,7 +3,7 @@
     <div>
       <NumberInputSpinner />
       <hr>
-      <NumberInputSpinner :integerOnly="false"  :step=".5" v-model="test"/>
+      <NumberInputSpinner :integerOnly="false"  :step=".5" value='10' v-model="test"/>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 
     data: function () {
         return {
-            test: 0,
+            test: 10,
         };
     },
 };

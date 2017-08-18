@@ -3,7 +3,7 @@
     <input type="button" @click="decreaseNumber" :class="buttonClass" value="-"/>
     <input
         type="number"
-        v-model.number="numericValue"
+        v-bind:value="numericValue"
         @keypress="validateInput"
         :class="inputClass"
         :min="min"
@@ -20,11 +20,15 @@ export default {
 
     data: function () {
         return {
-            numericValue: 0,
+            numericValue: this.value,
         };
     },
 
     props: {
+        value: {
+          type: Number,
+          default: 0
+        },
         min: {
             default: 0,
             type: Number
