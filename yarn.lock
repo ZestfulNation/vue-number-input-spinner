@@ -4666,9 +4666,9 @@ vue-loader@^12.1.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
-vue-number-input-spinner@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-number-input-spinner/-/vue-number-input-spinner-2.0.1.tgz#a24607f849b912965749b1a3106953ca3bf8a7ef"
+vue-number-input-spinner@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-number-input-spinner/-/vue-number-input-spinner-2.0.2.tgz#15c4c9a94fe37e76ab2ce786eb60cbf6d7a20198"
 
 vue-style-loader@^3.0.0:
   version "3.0.1"

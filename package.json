@@ -63,6 +63,6 @@
   },
   "dependencies": {
     "vue-highlightjs": "^1.3.3",
-    "vue-number-input-spinner": "^2.0.1"
+    "vue-number-input-spinner": "^2.0.2"
   }
 }

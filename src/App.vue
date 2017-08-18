@@ -60,7 +60,7 @@ export default {
     },
     data() {
         return {
-          someModel: '',
+          someModel: 5,
           snippet0: 'npm install vue-number-input-spinner',
           snippet1:
     `
