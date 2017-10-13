@@ -1,6 +1,6 @@
 <template>
   <div class="vnis" >
-    <input type="button" @click="decreaseNumber" :class="buttonClass" value="-"/>
+    <button @click.prevent="decreaseNumber" :class="buttonClass">-</button>
     <input
         type="number"
         v-bind:value="numericValue"
@@ -10,7 +10,7 @@
         :max="max"
         debounce="500"
     />
-    <input type="button" @click="increaseNumber" :class="buttonClass" value="+"/>
+    <button @click.prevent="increaseNumber" :class="buttonClass">+</button>
   </div>
 </template>
 
