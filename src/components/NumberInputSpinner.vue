@@ -5,7 +5,7 @@
         type="number"
         v-bind:value="numericValue"
         @keypress="validateInput"
-        @input="numericValue = parseInt($event.target.value)"
+        @input="numericValue = $event.target.value"
         :class="inputClass"
         :min="min"
         :max="max"
