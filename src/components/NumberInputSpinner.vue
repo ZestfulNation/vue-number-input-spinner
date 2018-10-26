@@ -5,7 +5,7 @@
         type="number"
         v-bind:value="numericValue"
         @keypress="validateInput"
-        @input="numericValue = $event.target.value"
+        @input="inputValue"
         :class="inputClass"
         :min="min"
         :max="max"
@@ -92,6 +92,10 @@ export default {
           else {
               this.isNumber(evt);
           }
+       },
+
+       inputValue(evt) {
+          this.numericValue = (evt.target.value) ? parseInt(evt.target.value) : this.min;
        }
     },
 
