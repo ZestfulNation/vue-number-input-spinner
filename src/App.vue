@@ -1,9 +1,9 @@
 <template>
   <div id="app" style="text-align: center; padding: 10vw; max-width: 960px; width: 90vw">
     <div>
-      <NumberInputSpinner />
+      <!-- <NumberInputSpinner /> -->
       <hr>
-      <NumberInputSpinner :integerOnly="false"  :step=".5" value='10' v-model="test"/>
+      <NumberInputSpinner :integerOnly="false"  value='10' :max="1000" v-model="test"/>
     </div>
   </div>
 </template>
