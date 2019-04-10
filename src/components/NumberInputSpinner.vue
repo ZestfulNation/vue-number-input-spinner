@@ -81,7 +81,7 @@ export default {
       if (this.timer === null) {
         this.timer = setInterval(() => {
           callback();
-        }, 100);
+        }, this.mouseDownSpeed);
       }
     },
 
