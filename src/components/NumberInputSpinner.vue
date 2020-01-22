@@ -146,6 +146,11 @@
     },
 
     watch: {
+      value: function (val, oldVal) {
+        if (val !== oldVal) {
+          this.numericValue = parseInt(val);
+        }
+      },
       numericValue: function (val, oldVal) {
         if (val <= this.min) {
           this.numericValue = parseInt(this.min);
