@@ -1,6 +1,6 @@
 {
   "name": "@sergiopalacio/vue-number-input-spinner",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "A Vue number spinner component that only allows the user to type in numbers. Maintained fork of krystalcampioni/vue-number-input-spinner ",
   "author": "sergiopalacio <sergiopalaciobach@gmail.com>",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/krystalcampioni/vue-number-input-spinner"
+    "url": "https://github.com/sergiopalacio/vue-number-input-spinner"
   },
   "keywords": [
     "vue",
