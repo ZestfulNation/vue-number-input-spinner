@@ -4,7 +4,8 @@
         @click='decreaseNumber'
         @mousedown='whileMouseDown(decreaseNumber)'
         @mouseup='clearTimer'
-        :class='buttonClass'>-</button>
+        :class='buttonClass'
+        :disabled="disabled">-</button>
     <input
         type='number'
         v-bind:value='numericValue'
@@ -14,12 +15,14 @@
         :min='min'
         :max='max'
         debounce='500'
+        :disabled="disabled"
     />
     <button
         @click='increaseNumber'
         @mousedown='whileMouseDown(increaseNumber)'
         @mouseup='clearTimer'
-        :class='buttonClass'>+</button>
+        :class='buttonClass'
+        :disabled="disabled">+</button>
   </div>
 </template>
 
@@ -64,6 +67,10 @@ export default {
       type: String
     },
     integerOnly: {
+      default: false,
+      type: Boolean
+    },
+    disabled: {
       default: false,
       type: Boolean
     }
