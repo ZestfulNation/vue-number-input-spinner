@@ -2,7 +2,7 @@
 A customizable number input spinner component for Vuejs
 
 ## Demo
-[https://krystalcampioni.github.io/vue-number-input-spinner/](https://krystalcampioni.github.io/vue-number-input-spinner/)
+[https://zestfulnation.github.io/vue-number-input-spinner/](https://zestfulnation.github.io/vue-number-input-spinner/)
 
 ## Installation
 
