@@ -33,7 +33,8 @@ export default {
   data: function() {
     return {
       numericValue: this.value,
-      timer: null
+      timer: null,
+      timeout: null
     };
   },
 
@@ -78,6 +79,11 @@ export default {
 
   methods: {
     clearTimer() {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+      }
+
       if (this.timer) {
         clearInterval(this.timer);
         this.timer = null;
@@ -85,9 +91,11 @@ export default {
     },
 
     whileMouseDown(callback) {
-      if (this.timer === null) {
-        this.timer = setInterval(() => {
-          callback();
+      if (this.timeout === null && this.timer === null) {
+        this.timeout = setTimeout(() => {
+          this.timer = setInterval(() => {
+            callback();
+          }, this.mouseDownSpeed);
         }, this.mouseDownSpeed);
       }
     },
