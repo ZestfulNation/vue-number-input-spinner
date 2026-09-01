@@ -114,7 +114,8 @@ export default {
     roundToStep(value) {
       const precision = Math.max(
         this.decimalPlaces(this.step),
-        this.decimalPlaces(this.min)
+        this.decimalPlaces(this.min),
+        this.decimalPlaces(value)
       );
       return parseFloat(value.toFixed(precision));
     },
@@ -169,9 +170,7 @@ export default {
         this.numericValue = this.integerOnly === true
           ? parseInt(this.min)
           : parseFloat(this.min);
-      }
-
-      if (val >= this.max) {
+      } else if (val >= this.max) {
         this.numericValue = this.integerOnly === true
           ? parseInt(this.max)
           : parseFloat(this.max);
