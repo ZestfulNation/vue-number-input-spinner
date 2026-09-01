@@ -178,6 +178,7 @@ export default {
     outline: none;
     text-align: center;
     width: calc(100% - 80px);
+    -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
