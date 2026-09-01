@@ -33,7 +33,8 @@ export default {
     return {
       numericValue: this.value,
       timer: null,
-      debounceTimer: null
+      debounceTimer: null,
+      debounceOldVal: null
     };
   },
 
@@ -158,12 +159,14 @@ export default {
 
       if (val <= this.max && val >= this.min) {
         if (this.debounce > 0) {
-          if (this.debounceTimer) {
+          if (this.debounceTimer === null) {
+            this.debounceOldVal = oldVal;
+          } else {
             clearTimeout(this.debounceTimer);
           }
 
           this.debounceTimer = setTimeout(() => {
-            this.$emit('input', val, oldVal);
+            this.$emit('input', val, this.debounceOldVal);
             this.debounceTimer = null;
           }, this.debounce);
         } else {
