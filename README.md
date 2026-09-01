@@ -32,5 +32,17 @@ export default {
   :buttonClass="your-other-css-class"
   :integerOnly="true"
   v-model="yourVModel"
+  @change="onChange"
 />
+```
+
+## Events
+
+The component emits the following events whenever its value changes, both receiving the new value and the previous value as arguments:
+
+* `input` - used internally to support `v-model`.
+* `change` - alias for `input`, useful when you prefer to listen with `@change` instead of relying on `v-model`.
+
+```html
+<NumberInputSpinner @change="onChange" @input="onInput" />
 ```
