@@ -14,7 +14,6 @@
         :class='inputClass'
         :min='min'
         :max='max'
-        debounce='500'
         :disabled="disabled"
     />
     <button
@@ -33,7 +32,9 @@ export default {
   data: function() {
     return {
       numericValue: this.value,
-      timer: null
+      timer: null,
+      debounceTimer: null,
+      debounceOldVal: null
     };
   },
 
@@ -56,6 +57,10 @@ export default {
     },
     mouseDownSpeed: {
       default: 100,
+      type: Number
+    },
+    debounce: {
+      default: 0,
       type: Number
     },
     inputClass: {
@@ -153,7 +158,20 @@ export default {
       }
 
       if (val <= this.max && val >= this.min) {
-        this.$emit('input', val, oldVal);
+        if (this.debounce > 0) {
+          if (this.debounceTimer === null) {
+            this.debounceOldVal = oldVal;
+          } else {
+            clearTimeout(this.debounceTimer);
+          }
+
+          this.debounceTimer = setTimeout(() => {
+            this.$emit('input', val, this.debounceOldVal);
+            this.debounceTimer = null;
+          }, this.debounce);
+        } else {
+          this.$emit('input', val, oldVal);
+        }
       }
     }
   }
