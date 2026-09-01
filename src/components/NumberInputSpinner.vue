@@ -144,17 +144,23 @@ export default {
 
   watch: {
     numericValue: function(val, oldVal) {
+      let clampedValue = val;
+
       if (val <= this.min) {
-        this.numericValue = parseInt(this.min);
+        clampedValue = parseInt(this.min);
       }
 
       if (val >= this.max) {
-        this.numericValue = parseInt(this.max);
+        clampedValue = parseInt(this.max);
       }
 
-      if (val <= this.max && val >= this.min) {
-        this.$emit('input', val, oldVal);
+      if (clampedValue !== val) {
+        this.numericValue = clampedValue;
+        return;
       }
+
+      this.$emit('input', val, oldVal);
+      this.$emit('change', val, oldVal);
     }
   }
 };
