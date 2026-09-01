@@ -93,11 +93,31 @@ export default {
     },
 
     increaseNumber() {
-      this.numericValue += this.step;
+      this.numericValue = this.roundToStep(this.numericValue + this.step);
     },
 
     decreaseNumber() {
-      this.numericValue -= this.step;
+      this.numericValue = this.roundToStep(this.numericValue - this.step);
+    },
+
+    decimalPlaces(number) {
+      const match = ('' + number).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+      if (!match) {
+        return 0;
+      }
+      return Math.max(
+        0,
+        (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0)
+      );
+    },
+
+    roundToStep(value) {
+      const precision = Math.max(
+        this.decimalPlaces(this.step),
+        this.decimalPlaces(this.min),
+        this.decimalPlaces(value)
+      );
+      return parseFloat(value.toFixed(precision));
     },
 
     isInteger(evt) {
@@ -137,7 +157,9 @@ export default {
 
     inputValue(evt) {
       this.numericValue = evt.target.value
-        ? parseInt(evt.target.value)
+        ? this.integerOnly === true
+          ? parseInt(evt.target.value)
+          : parseFloat(evt.target.value)
         : this.min;
     }
   },
@@ -145,11 +167,13 @@ export default {
   watch: {
     numericValue: function(val, oldVal) {
       if (val <= this.min) {
-        this.numericValue = parseInt(this.min);
-      }
-
-      if (val >= this.max) {
-        this.numericValue = parseInt(this.max);
+        this.numericValue = this.integerOnly === true
+          ? parseInt(this.min)
+          : parseFloat(this.min);
+      } else if (val >= this.max) {
+        this.numericValue = this.integerOnly === true
+          ? parseInt(this.max)
+          : parseFloat(this.max);
       }
 
       if (val <= this.max && val >= this.min) {
