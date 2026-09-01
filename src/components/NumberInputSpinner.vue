@@ -155,6 +155,18 @@ export default {
       if (val <= this.max && val >= this.min) {
         this.$emit('input', val, oldVal);
       }
+    },
+
+    value: function(val) {
+      if (val <= this.min) {
+        val = parseInt(this.min);
+      } else if (val >= this.max) {
+        val = parseInt(this.max);
+      }
+
+      if (val !== this.numericValue) {
+        this.numericValue = val;
+      }
     }
   }
 };
